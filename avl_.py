@@ -17,29 +17,32 @@ class avl:
                 self.right.content = content
             else:
                 self.right.insert(value,content)
-    def inorder_traversal(self):
+    def inorder_traversal(self,values =[]):
         if self.left:
              self.left.inorder_traversal()
-        print(self.value)
+        values.append(self.value)
 
         if self.right :
             self.right.inorder_traversal()
+        return values
         
-    def preorder_traversal(self):
-        print(self.value)
+    def preorder_traversal(self, values = []):
+        values.append(self.value)
         if self.left:
             self.left.preorder_traversal()
         if self.right:
             self.right.preorder_traversal()
+        return values
 
 
-    def postorder_traversal(self):
+    def postorder_traversal(self, values = []):
         if self.left:
             self.left.postorder_traversal()
             
         if self.right:
             self.right.postorder_traversal()
-        print(self.value)
+        values.append(self.value)
+        return values
                 
     def find(self, value):
         if self.value < value:
@@ -67,9 +70,11 @@ tree.insert(16)
 tree.insert(13)
 tree.insert(6)
 
-tree.inorder_traversal()
+print(tree.inorder_traversal())
 
-print("this is postorder")
-tree.postorder_traversal()
+print(tree.postorder_traversal())
+
+print(tree.preorder_traversal())
+
 print(tree.find(12).content)
     
