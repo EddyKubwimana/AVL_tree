@@ -57,6 +57,18 @@ class avl:
                 return self.left.find(value)
         else:
             return self
+def find_height(node):
+    if node.left is None:
+        return -1
+    else:
+       height_left = 1+find_height(node.left)
+    if node.right is None:
+        return -1
+    else:
+        height_right = 1+find_height(node.left)
+    return max( height_left,height_right)
+
+        
         
 tree = avl(10)
 tree.insert(12,{12:"Eddy"})
@@ -69,6 +81,7 @@ tree.insert(4)
 tree.insert(16)
 tree.insert(13)
 tree.insert(6)
+print(find_height(tree))
 
 print(tree.inorder_traversal())
 
