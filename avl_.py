@@ -67,6 +67,21 @@ def find_height(node):
     else:
         height_right = 1+find_height(node.left)
     return max( height_left,height_right)
+def is_balanced(node):
+    if node.left is None:
+        return -1
+    else:
+       height_left = 1+find_height(node.left)
+    if node.right is None:
+        return -1
+    else:
+        height_right = 1+find_height(node.left)
+    if abs(height_left-height_right)<=1:
+        return True
+    else:
+        return False
+    
+
 
         
         
@@ -82,6 +97,7 @@ tree.insert(16)
 tree.insert(13)
 tree.insert(6)
 print(find_height(tree))
+print(is_balanced(tree))
 
 print(tree.inorder_traversal())
 
